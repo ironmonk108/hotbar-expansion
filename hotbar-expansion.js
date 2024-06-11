@@ -35,7 +35,7 @@ const WithMonksHotbarExpansion = (Hotbar) => {
         }
 
         static get defaultOptions() {
-            return mergeObject(super.defaultOptions, {
+            return foundry.utils.mergeObject(super.defaultOptions, {
                 id: "hotbar",
                 template: "./modules/monks-hotbar-expansion/templates/hotbar.html",
                 popOut: false,
