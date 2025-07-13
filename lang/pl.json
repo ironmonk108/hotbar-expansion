@@ -1,0 +1,19 @@
+{
+	"MonksHotbarExpansion.number-rows.name": "Liczba wierszy",
+	"MonksHotbarExpansion.number-rows.hint": "Liczba wierszy do wyświetlenia po kliknięciu numeru paska skrótów",
+	"MonksHotbarExpansion.reverse-row-order.name": "Odwrócony",
+	"MonksHotbarExpansion.reverse-row-order.hint": "Odwróć kolejność wierszy, nie powielając pierwszego wiersza",
+	"MonksHotbarExpansion.hide-first-row.name": "Ukryj pierwszy wiersz",
+	"MonksHotbarExpansion.hide-first-row.hint": "Jeśli chcesz, aby wszystkie wiersze były otwarte jednocześnie, ukryj pierwszy wiersz, aby zaoszczędzić miejsce",
+	"MonksHotbarExpansion.collapse-on-select.name": "Zwiń po wybraniu",
+	"MonksHotbarExpansion.collapse-on-select.hint": "Zwiń rozszerzenie po wybraniu wiersza",
+	"MonksHotbarExpansion.toggle-key.name": "Przełączanie paska skrótów",
+	"MonksHotbarExpansion.toggle-key.hint": "Przełączanie rozszerzenia paska skrótów",
+	"MonksHotbarExpansion.collapse-on-open.name": "Początek zwinięcia",
+	"MonksHotbarExpansion.collapse-on-open.hint": "Gdy Foundry ładuje się po raz pierwszy, należy rozpocząć od zwiniętego rozszerzenia",
+	"MonksHotbarExpansion.hide-page-arrows.name": "Ukryj strzałki stron",
+	"MonksHotbarExpansion.hide-page-arrows.hint": "Jeśli nie chcesz, aby strzałki były widoczne",
+	"MonksHotbarExpansion.switch-row.name": "Przełączanie wiersza makr",
+
+	"MonksHotbarExpansion.clear-row": "Wyczyść wiersz"
+}
