@@ -1,13 +1,13 @@
 {
   "title": "Monk's Hotbar Expansion",
   "description": "Click to show all rows of the Hotbar, so that you can select the row by sight rather than clicking through pages.  Drag and Drop on any of the rows, and clear an entire row if needed.",
-  "version": "11.01",
+  "version": "13.01",
   "authors": [
     {
       "name": "IronMonk",
-      "discord": "ironmonk88#4075",
+      "discord": "ironmonk108",
 	  "flags": {
-		  "github": "ironmonk88",
+		  "github": "ironmonk108",
 		  "patreon": "ironmonk",
 		  "ko-fi": "ironmonk88"
 	  }
@@ -32,17 +32,19 @@
   "styles": [
     "css/hotbar-expansion.css"
   ],
-  "url": "https://github.com/ironmonk88/hotbar-expansion",
-  "download": "https://github.com/ironmonk88/hotbar-expansion/archive/11.01.zip",
-  "manifest": "https://github.com/ironmonk88/hotbar-expansion/releases/latest/download/module.json",
-  "bugs": "https://github.com/ironmonk88/hotbar-expansion/issues",
-  "allowBugReporter": true,
+  "url": "https://github.com/ironmonk8108/hotbar-expansion",
+  "download": "https://github.com/ironmonk108/hotbar-expansion/archive/13.01.zip",
+  "manifest": "https://github.com/ironmonk108/hotbar-expansion/releases/latest/download/module.json",
+  "bugs": "https://github.com/ironmonk108/hotbar-expansion/issues",
   "id": "monks-hotbar-expansion",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11"
+    "minimum": "13",
+    "verified": "13"
   },
   "name": "monks-hotbar-expansion",
-  "minimumCoreVersion": "11",
-  "compatibleCoreVersion": "11"
+  "minimumCoreVersion": "13",
+  "compatibleCoreVersion": "13",
+  "flags": {
+    "allowBugReporter": true
+  }
 }

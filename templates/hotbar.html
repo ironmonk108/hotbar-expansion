@@ -1,66 +1,60 @@
-<div id="hotbar" class="flexrow {{#if locked}}locked{{/if}}" data-tooltip-direction="UP">
-    <div id="hotbar-directory-controls" class="bar-controls flexcol">
-        <a id="bar-toggle" data-tooltip="MACRO.CollapseHotbar">
-            <i class="fas fa-caret-down"></i>
-        </a>
-        <a id="macro-directory" data-tooltip="MACRO.Directory">
-            <i class="fas fa-folder"></i>
-        </a>
+<aside id="hotbar" class="flexrow {{#if locked}}locked{{/if}}" data-tooltip-direction="UP">
+    <div id="hotbar-controls-left" class="hotbar-controls flexcol" data-tooltip-direction="LEFT">
+        <button type="button" class="ui-control fa-solid fa-volume icon" data-action="mute" data-tooltip
+                aria-label="{{localize 'HOTBAR.MUTE'}}"></button>
+        <button type="button" class="ui-control fa-solid fa-bars icon" data-action="menu" data-tooltip
+                aria-label="{{localize 'HOTBAR.MENU'}}"></button>
     </div>
-    <nav id="action-bar" class="action-bar flexrow {{barClass}}" aria-label="{{localize 'MACRO.NavLabel'}}">
-        <ol id="macro-list" class="flexrow macro-list" data-page="{{page}}">
-            {{#each macros}}
-            <li class="macro {{this.cssClass}}" data-slot="{{this.slot}}"
-                {{#if this.macro}} data-macro-id="{{this.macro.id}}" data-tooltip="{{this.tooltip}}" {{/if}}>
-                <span class="macro-key">{{this.key}}</span>
-                {{#if this.icon}}
-                <img class="macro-icon" src="{{this.icon}}" alt="{{this.tooltip}}" />
-                {{/if}}
-            </li>
-            {{/each}}
-        </ol>
-    </nav>
-    <div id="hotbar-lock" class="bar-controls flexcol" data-tooltip-direction="UP">
-        <a class="page-control" data-action="lock" data-tooltip="MACRO.{{ifThen locked "Unlock" "Lock"}}Bar">
-            <i class="fas fa-lock{{#unless locked}}-open{{/unless}}"></i>
-        </a>
-    </div>
-    <div id="hotbar-page-controls" class="bar-controls flexcol" data-tooltip-direction="UP">
-        {{#if showArrows}}
-        <a class="page-control" data-action="page-up" data-tooltip="MACRO.PageUp" alt="{{localize 'MACRO.PageUp'}}">
-            <i class="fas fa-angle-up"></i>
-        </a>
-        {{/if}}
-        <span class="page-number">{{page}}</span>
-        {{#if showArrows}}
-        <a class="page-control" data-action="page-down" data-tooltip="MACRO.PageDown" alt="{{localize 'MACRO.PageDown'}}">
-            <i class="fas fa-angle-down"></i>
-        </a>
-        {{/if}}
+    <menu id="action-bar" class="flexrow" data-tooltip-direction="UP">
+        {{#each slots as |slot|}}
+        <li class="slot {{slot.cssClass}}" role="button" data-action="execute" data-slot="{{slot.slot}}"
+            style="{{slot.style}}" aria-label="{{slot.ariaLabel}}"
+            {{#if slot.tooltip}} data-tooltip-text="{{slot.tooltip}}" {{/if}}>
+            {{#if slot.img}}<img class="slot-icon" src="{{slot.img}}" alt="{{slot.ariaLabel}}">{{/if}}
+            <span class="key">{{slot.key}}</span>
+        </li>
+        {{/each}}
+    </menu>
+    <div id="hotbar-controls-right" class="hotbar-controls flexrow" data-tooltip-direction="RIGHT">
+        <nav id="hotbar-page-controls" class="flexcol{{#if barClass}} {{barClass}}{{/if}}">
+            <button type="button" class="plain hotbar-page-control page-next fa-solid fa-triangle icon"
+                    data-action="page" data-direction="1" data-tooltip aria-label="{{localize 'HOTBAR.PAGE_NEXT'}}">
+            </button>
+            <span class="hotbar-page-number">{{page}}</span>
+            <button type="button" class="plain hotbar-page-control page-prev fa-solid fa-triangle icon"
+                    data-action="page" data-direction="-1" data-tooltip aria-label="{{localize 'HOTBAR.PAGE_PREV'}}">
+            </button>
+        </nav>
+        <div class="flexcol">
+            <button type="button" class="ui-control fa-solid fa-caret-up icon" data-action="togglePage" data-tooltip
+                    aria-label="Expand Hotbar"></button>
+            <button type="button" class="ui-control fa-solid fa-unlock icon" data-action="lock" data-tooltip
+                    aria-label="{{localize 'HOTBAR.LOCK'}}"></button>
+        </div>
     </div>
     <div id="hotbar-page" class="hotbar-page flexcol {{pageClass}}">
         {{#each macrolist}}
         <div class="hotbar-page-row flexrow{{#if this.selected}} selected{{/if}}" data-page="{{page}}">
-            <div data-tooltip="MonksHotbarExpansion.clear-row" class="bar-controls clear-row flexcol">
-                <i class="fas fa-trash"></i>
+            <div class="hotbar-controls flexcol">
+                <button type="button" class="plain hotbar-page-control ui-control fa-solid fa-trash icon" data-tooltip="MonksHotbarExpansion.clear-row" data-action="clearMacros">
+                </button>
             </div>
-            <nav class="action-bar flexrow">
-                <ol class="flexrow macro-list" data-page="{{page}}">
-                    {{#each macros}}
-                    <li class="macro {{this.cssClass}}" data-slot="{{this.slot}}"
-                        {{#if this.macro}} data-macro-id="{{this.macro.id}}" data-tooltip="{{this.tooltip}}" {{/if}}>
-                        <span class="macro-key">{{this.key}}</span>
-                        {{#if this.icon}}
-                        <img class="macro-icon" src="{{this.icon}}" alt="{{this.tooltip}}" />
-                        {{/if}}
+            <nav class="flexrow macro-list">
+                <menu class="flexrow action-bar" data-page="{{page}}">
+                    {{#each macros as |slot|}}
+                    <li class="slot {{slot.cssClass}}" role="button" data-action="execute" data-slot="{{slot.slot}}"
+                        style="{{slot.style}}" aria-label="{{slot.ariaLabel}}"
+                        {{#if slot.macro}} data-macro-id="{{slot.macro.id}}"{{/if}} {{#if slot.tooltip}} data-tooltip-text="{{slot.tooltip}}" {{/if}}>
+                        {{#if slot.img}}<img class="slot-icon" src="{{slot.img}}" alt="{{slot.ariaLabel}}">{{/if}}
+                        <span class="key">{{slot.key}}</span>
                     </li>
                     {{/each}}
-                </ol>
+                </menu>
             </nav>
             <div class="bar-controls flexcol">
-                <span class="page-number">{{page}}</span>
+                <div class="page-number ui-control" data-action="selectPage">{{page}}</div>
             </div>
         </div>
         {{/each}}
     </div>
-</div>
+</aside>
