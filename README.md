@@ -13,11 +13,8 @@ And clicking the trash can will allow you to clear an entire row of macros.
 
 ![ExpandedHotbar](/screenshots/ExpandedHotbar.png)
 
-## Known Issues
-Dragging between macros on the expanded bars isn't working.  I'm not sure why.
-
 ## Bug Reporting
-Please feel free to contact me on discord if you have any questions or concerns. ironmonk88#4075
+Please feel free to contact me on discord if you have any questions or concerns. ironmonk108
 
 ## License
 This Foundry VTT module, writen by Ironmonk, is licensed under [GNU GPLv3.0](https://www.gnu.org/licenses/gpl-3.0.en.html), supplemented by [Commons Clause](https://commonsclause.com/).
