@@ -11,7 +11,7 @@
     bottom: 60px;
     width: 100%;
     left: 0px;
-    max-height: 265px;
+    margin-bottom: 4px;
     z-index: 10;
     overflow:hidden;
 }
@@ -38,26 +38,73 @@
 }
 
 .hotbar-page .action-bar {
-    flex: 1;
-    height: 52px;
+    flex: none;
+    width: auto;
+    height: var(--hotbar-size);
+    gap: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    justify-content: center;
+    flex-wrap: wrap;
     pointer-events: all;
-    flex-wrap: nowrap;
 }
 
-#hotbar .macro-list {
-    flex-wrap: nowrap;
+#hotbar .action-bar .slot {
+    position: relative;
+    flex: none;
+    width: var(--hotbar-size);
+    height: var(--hotbar-size);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: var(--slot-color, var(--color-cool-5-90));
+    cursor: var(--cursor-pointer);
+}
+
+#hotbar .action-bar .slot .key {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    line-height: 20px;
+    padding-right: 2px;
+    background: var(--key-bg-color-empty, var(--color-cool-5));
+    border-radius: 10px 0 8px 0;
+    color: var(--key-text-color, var(--color-light-1));
+    text-align: center;
+    pointer-events: none;
+}
+
+#hotbar .action-bar .slot.full .key {
+    background: var(--key-bg-color-full, var(--color-cool-5));
+}
+
+#hotbar .action-bar .slot .slot-icon {
+    width: 100%;
     height: 100%;
-    list-style: none;
-    margin: 0 2px;
-    padding: 0;
-    border: 1px solid var(--color-border-dark);
-    border-radius: 3px;
-    display: grid;
-    grid-template-columns: repeat(10, var(--macro-size));
+    border: none;
+    border-radius: 10px;
+    pointer-events: none;
 }
 
+#hotbar .action-bar .slot:hover {
+    border: 2px solid var(--color-warm-1);
+}
+
+#hotbar .action-bar .slot.drop-target {
+    background: var(--color-cool-4);
+    border: 2px solid var(--color-warm-2);
+}
+
+/*
 .hotbar-page.rpg-ui .macro-list {
     flex: 0 0 582px;
+}
+    */
+
+#hotbar .hotbar-controls button,
+#hotbar .bar-controls .page-number {
+    --button-size: 1.5rem;
+    --control-size: 1.5rem;
 }
 
 .hotbar-page .hotbar-page-row {
@@ -65,13 +112,44 @@
     margin-top: 1px;
 }
 
+.hotbar-page .hotbar-page-row .hotbar-controls {
+    margin-right: 8px;
+}
+
+.hotbar-page .hotbar-page-row .bar-controls .page-number {
+    text-shadow: none;
+    background: var(--control-bg-color);
+    border-color: var(--control-border-color);
+    color: var(--control-icon-color);
+    border: 1px solid var(--control-border-color);
+    border-radius: 4px;
+    flex: none;
+    width: var(--control-size);
+    height: var(--control-size);
+    justify-content: center;
+    text-align: center;
+    line-height: 22px;
+}
+
 .hotbar-page .hotbar-page-row.selected .bar-controls .page-number {
     color: #bc8c4a;
+    border: 1px solid #bc8c4a;
+}
+
+.hotbar-page .hotbar-page-row .bar-controls .page-number:hover {
+    background: var(--control-hover-bg-color);
+    border-color: var(--control-hover-border-color);
+    color: var(--control-hover-icon-color);
 }
 
 .hotbar-page .bar-controls {
     cursor: pointer;
     pointer-events: all;
+    flex: 0 0 50px;
+}
+
+#hotbar-page.no-arrows .bar-controls {
+    flex: none;
 }
 
 #hotbar .action-bar.no-arrows + .bar-controls span.page-number,
@@ -85,4 +163,12 @@
 
 #hotbar #hotbar-lock {
     pointer-events: all;
+}
+
+#hotbar.expanded #hotbar-controls-right button[data-action="togglePage"]::before {
+    content: "\f0d7";
+}
+
+#hotbar-page-controls.no-arrows {
+    display: none;
 }
