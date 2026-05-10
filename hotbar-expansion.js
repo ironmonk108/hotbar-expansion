@@ -66,7 +66,7 @@ const WithMonksHotbarExpansion = (Hotbar) => {
                         img: m.macro?.img ?? null,
                         cssClass: m.macro ? "full" : "open",
                         tooltip: m.macro?.name ?? null,
-                        ariaLabel: m.macro?.name ?? game.i18n.localize("HOTBAR.EMPTY")
+                        ariaLabel: m.macro?.name ?? game.i18n.localize("HOTBAR.Empty")
                     });
                 });
 
@@ -175,9 +175,9 @@ const WithMonksHotbarExpansion = (Hotbar) => {
         static async onClearMacros(event, target) {
             const confirm = await foundry.applications.api.DialogV2.confirm({
                 window: {
-                    title: `Clearing Macro Row`,
+                    title: "MonksHotbarExpansion.clearing-macro-row",
                 },
-                content: `<h4>${game.i18n.localize("AreYouSure")}</h4><p>You are about to remove all macros from this row</p>`,
+                content: `<h4>${game.i18n.localize("COMMON.AreYouSure")}</h4><p>${i18n("MonksHotbarExpansion.ClearRowMsg")}</p>`,
             });
 
             if (confirm) {
