@@ -15,5 +15,8 @@
 	"MonksHotbarExpansion.hide-page-arrows.hint": "Jeśli nie chcesz, aby strzałki były widoczne",
 	"MonksHotbarExpansion.switch-row.name": "Przełączanie wiersza makr",
 
-	"MonksHotbarExpansion.clear-row": "Wyczyść wiersz"
+	"MonksHotbarExpansion.clear-row": "Wyczyść wiersz",
+	"MonksHotbarExpansion.expand-hotbar": "Rozwiń pasek skrótów",
+	"MonksHotbarExpansion.clearing-macro-row": "Wyczyść wiersz makr",
+	"MonksHotbarExpansion.ClearRowMsg": "Za chwilę usuniesz wszystkie makra z tego wiersza"
 }
